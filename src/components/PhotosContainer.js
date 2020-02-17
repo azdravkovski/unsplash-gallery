@@ -4,10 +4,8 @@ import Photo from "./Photo";
 import Lightbox from "./Lightbox";
 import Unsplash from "unsplash-js";
 
-const REACT_APP_UNSPLASH_API_KEY = process.env.REACT_APP_UNSPLASH_API_KEY;
-
 const unsplash = new Unsplash({
-  accessKey: REACT_APP_UNSPLASH_API_KEY
+  accessKey: "kvWrlBPdGdNeHYwCNJ0D9UGqjJyjZzmmBKgDNAU1ZcQ"
 });
 
 export default class PhotosContainer extends Component {
