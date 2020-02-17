@@ -20,16 +20,17 @@
 
 @media (min-width: 720px) and (max-width: 959px) {
   .photo-wrapper {
-    height: auto;
-    width: 100%;
     flex: 1 0 32%;
   }
 }
 
 @media (max-width: 719px) {
   .photo-wrapper {
-    height: auto;
-    width: 100%;
     flex: 1 0 50%;
+  }
+}
+@media (max-width: 540px) {
+  .photo-wrapper {
+    flex: 1 0 100%;
   }
 }
