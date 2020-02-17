@@ -13,21 +13,44 @@ export default class PhotosContainer extends Component {
   };
 
   componentDidMount() {
-    unsplash.photos
-      .listPhotos(2, 15, "latest")
+    this.fetchPhotos(1, 16, "latest");
+  }
+
+  fetchPhotos = (page, amount, keyword) => {
+    return unsplash.photos
+      .listPhotos(page, amount, keyword)
       .then(data => data.json())
       .then(photos => {
         console.log(photos);
         let renderedPhotos = photos.map(photo => (
-          <Photo key={photo.id} alt={photo.alt_description} src={photo.urls.regular} />
-        ));
+          <Photo
+            key={photo.id}
+            alt={photo.alt_description}
+            src={photo.urls.small}
+          />
+        )); 
         this.setState({
           renderedPhotos
-        })
+        });
       });
   }
 
+  loadMorePhotos() {
+    this.fetchPhotos(2, 16, "latest").then(data => {
+      this.setState({
+        renderedPhotos: this.state.renderedPhotos.concat(data)
+      });
+    });
+  }
+
   render() {
-    return <div>{this.state.renderedPhotos}</div>;
+    return (
+      <>
+        <div className="photos-container">{this.state.renderedPhotos}</div>
+        <button className="button-loadmore" onClick={() => this.loadMorePhotos()}>
+          Load more...
+        </button>
+      </>
+    );
   }
 }

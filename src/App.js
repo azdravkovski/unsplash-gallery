@@ -9,7 +9,6 @@ function App() {
         Gallery
       </header>
       <PhotosContainer />
-      <button>Load more...</button>
     </div>
   );
 }
