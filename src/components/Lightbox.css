@@ -4,6 +4,7 @@
   justify-content: baseline;
   max-width: 100%;
   background: rgba(0, 0, 0, 0.6);
+  color: #fff;
 }
 
 .lightbox img {

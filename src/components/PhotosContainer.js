@@ -4,8 +4,10 @@ import Photo from "./Photo";
 import Lightbox from "./Lightbox";
 import Unsplash from "unsplash-js";
 
+const REACT_APP_UNSPLASH_API_KEY = process.env.REACT_APP_UNSPLASH_API_KEY;
+
 const unsplash = new Unsplash({
-  accessKey: "kvWrlBPdGdNeHYwCNJ0D9UGqjJyjZzmmBKgDNAU1ZcQ"
+  accessKey: REACT_APP_UNSPLASH_API_KEY
 });
 
 export default class PhotosContainer extends Component {
@@ -60,9 +62,17 @@ export default class PhotosContainer extends Component {
       .catch(error => console.error(error));
   };
 
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
   showLightbox = id => {
     this.setState({ showLightbox: true }, () => {
       this.fetchSinglePhoto(id);
+      this.scrollToTop();
     });
   };
 
