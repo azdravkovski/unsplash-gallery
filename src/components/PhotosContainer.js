@@ -26,7 +26,6 @@ export default class PhotosContainer extends Component {
       .listPhotos(page, amount, keyword)
       .then(data => data.json())
       .then(photos => {
-        // console.log(photos);
         let renderedPhotos = photos.map(photo => (
           <Photo
             key={photo.id}
@@ -63,9 +62,7 @@ export default class PhotosContainer extends Component {
 
   showLightbox = id => {
     this.setState({ showLightbox: true }, () => {
-      this.fetchSinglePhoto(id).then(() =>
-        console.log(this.state.lightboxPhoto)
-      );
+      this.fetchSinglePhoto(id);
     });
   };
 

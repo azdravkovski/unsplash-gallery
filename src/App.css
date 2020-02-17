@@ -2,11 +2,11 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App-header {
+  font-size: 2rem;
+  margin: 2rem;
+  text-transform: uppercase;
 }
-
 
 .App-link {
   color: #61dafb;

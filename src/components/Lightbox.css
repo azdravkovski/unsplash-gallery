@@ -1,6 +1,7 @@
 .lightbox {
   display: flex;
   flex-direction: column;
+  justify-content: baseline;
   max-width: 100%;
   background: rgba(0, 0, 0, 0.6);
 }

@@ -1,4 +1,35 @@
 .photo-wrapper {
-  height: 100%;
+  height: auto;
+  width: 100%;
   flex: 1 0 21%;
+}
+
+.photo-wrapper .photo {
+  height: auto;
+  width: 100%;
+}
+
+/* BREAKPOINTS */
+@media (min-width: 960px) {
+  .photo-wrapper {
+    height: auto;
+    width: 100%;
+    flex: 1 0 21%;
+  }
+}
+
+@media (min-width: 720px) and (max-width: 959px) {
+  .photo-wrapper {
+    height: auto;
+    width: 100%;
+    flex: 1 0 32%;
+  }
+}
+
+@media (max-width: 719px) {
+  .photo-wrapper {
+    height: auto;
+    width: 100%;
+    flex: 1 0 50%;
+  }
 }
