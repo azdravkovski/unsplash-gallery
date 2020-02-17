@@ -6,15 +6,17 @@ const Lightbox = props => {
     ? "lightbox display-block"
     : "lightbox display-none";
 
-  const { name, portfolio_url, bio } = props.info.user;
+const userIsPresent = props.info && props.info.user;
+const user = userIsPresent ? props.info.user : null;
+
   return (
     <div className={showHideLightbox}>
       <button className="btn-close" onClick={() => props.hide()}>
         X
       </button>
-      {/* <p>{name}</p>
-      <p>{portfolio_url}</p>
-      <p>{bio}</p> */}
+      {/* <p>{user.name}</p>
+      <p>{user.portfolio_url}</p>
+      <p>{user.bio}</p> */}
       <img
         className="photo-lightbox"
         alt={props.lightboxAlt}

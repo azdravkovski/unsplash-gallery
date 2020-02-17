@@ -16,7 +16,9 @@ export default class PhotosContainer extends Component {
   };
 
   componentDidMount() {
-    this.fetchPhotos(1, 16, "latest");
+    this.fetchPhotos(1, 16, "latest").then(data =>
+      this.setState({ renderedPhotos: data })
+    );
   }
 
   fetchPhotos = (page, amount, keyword) => {
@@ -34,16 +36,15 @@ export default class PhotosContainer extends Component {
             showLightbox={this.showLightbox}
           />
         ));
-        this.setState({
-          renderedPhotos
-        });
+        return renderedPhotos;
       });
   };
 
   loadMorePhotos = () => {
-    this.fetchPhotos(2, 16, "latest").then(data => {
+    let randomPage = Math.floor(Math.random() * 100);
+    this.fetchPhotos(randomPage, 16, "latest").then(data => {
       this.setState({
-        renderedPhotos: this.state.renderedPhotos.concat(data)
+        renderedPhotos: [...this.state.renderedPhotos, data]
       });
     });
   };
@@ -62,7 +63,9 @@ export default class PhotosContainer extends Component {
 
   showLightbox = id => {
     this.setState({ showLightbox: true }, () => {
-      this.fetchSinglePhoto(id).then(() => console.log(this.state.lightboxPhoto));
+      this.fetchSinglePhoto(id).then(() =>
+        console.log(this.state.lightboxPhoto)
+      );
     });
   };
 
@@ -71,7 +74,7 @@ export default class PhotosContainer extends Component {
   };
 
   render() {
-    const {alt_description, urls} = this.state.lightboxPhoto
+    const { alt_description, urls } = this.state.lightboxPhoto;
     return (
       <>
         <div className="lightbox-container">
