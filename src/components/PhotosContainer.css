@@ -4,6 +4,12 @@
   justify-content: space-between;
 }
 
+.button-loadmore {
+  margin: .5rem;
+  width: 10rem;
+  height: 5rem;
+}
+
 @media (min-width: 960px) {
   .photo-wrapper {
     /* flex: 1 0 33%; */
